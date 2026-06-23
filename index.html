@@ -221,13 +221,37 @@ const d=["","DIEZ","VEINTE","TREINTA","CUARENTA","CINCUENTA","SESENTA","SETENTA"
 const e={11:"ONCE",12:"DOCE",13:"TRECE",14:"CATORCE",15:"QUINCE"};
 
 function c99(x){
-if(x<10) return u[x];
-if(e[x]) return e[x];
-if(x<20) return "DIECI"+u[x-10].toLowerCase();
-if(x===20) return "VEINTE";
-if(x<30) return "VEINTI"+u[x-20].toLowerCase();
-let dec=Math.floor(x/10), uni=x%10;
-return d[dec]+(uni?" Y "+u[uni]:"");
+
+const especiales = {
+10:"DIEZ",
+11:"ONCE",
+12:"DOCE",
+13:"TRECE",
+14:"CATORCE",
+15:"QUINCE",
+16:"DIECISEIS",
+17:"DIECISIETE",
+18:"DIECIOCHO",
+19:"DIECINUEVE",
+20:"VEINTE",
+21:"VEINTIUN",
+22:"VEINTIDOS",
+23:"VEINTITRES",
+24:"VEINTICUATRO",
+25:"VEINTICINCO",
+26:"VEINTISEIS",
+27:"VEINTISIETE",
+28:"VEINTIOCHO",
+29:"VEINTINUEVE"
+};
+
+if(x < 30) return especiales[x] || u[x];
+
+let dec=Math.floor(x/10);
+let uni=x%10;
+
+return d[dec] + (uni ? " Y " + u[uni] : "");
+
 }
 
 function c999(x){
