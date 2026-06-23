@@ -378,7 +378,42 @@ const montoCertificadoNumero = document.getElementById("montoCertificadoNumero")
 const montoRedetLetras = document.getElementById("montoRedetLetras").value;
 const montoRedetNumero = document.getElementById("montoRedetNumero").value;
 
+const montoCertificadoAcumarNumero =
+document.getElementById("montoCertificadoAcumarNumero")?.value || "";
+
+const montoCertificadoAcumarLetras =
+document.getElementById("montoCertificadoAcumarLetras")?.value || "";
+
+const montoRedetAcumarNumero =
+document.getElementById("montoRedetAcumarNumero")?.value || "";
+
+const montoRedetAcumarLetras =
+document.getElementById("montoRedetAcumarLetras")?.value || "";
+
 const resoluciones = document.getElementById("resoluciones").value;
+
+let textoCertificado;
+let textoRedeterminaciones;
+
+if(zona=="Z2" || zona=="Z4"){
+
+    textoCertificado =
+        `${montoCertificadoLetras} (${montoCertificadoNumero}) y ` +
+        `${montoCertificadoAcumarLetras} (${montoCertificadoAcumarNumero}) ACUMAR`;
+
+    textoRedeterminaciones =
+        `${montoRedetLetras} (${montoRedetNumero}) y ` +
+        `${montoRedetAcumarLetras} (${montoRedetAcumarNumero}) ACUMAR`;
+
+}else{
+
+    textoCertificado =
+        `${montoCertificadoLetras} (${montoCertificadoNumero})`;
+
+    textoRedeterminaciones =
+        `${montoRedetLetras} (${montoRedetNumero})`;
+
+}
 
 const texto = `Referencia: S/CERTIFICADO BÁSICO N.° ${certificado} ${zona} ${mes} ${anio}
 ${expediente}
@@ -387,9 +422,9 @@ DIRECCIÓN GENERAL SISTEMA PLUVIAL
 DIRECTORA GENERAL
 Arq. Gimena De Franco
 
-Por las presentes actuaciones tramita el Certificado Básico N.° ${certificado} (${ifCertificado}), correspondiente a los trabajos realizados durante el mes de ${mes.toLowerCase()} de ${anio} por la empresa ${contratista}, por un monto de ${montoCertificadoLetras} (${montoCertificadoNumero}), correspondiente al servicio básico de Mantenimiento Integral de la Red Pluvial.
+Por las presentes actuaciones tramita el Certificado Básico N.° ${certificado} (${ifCertificado}), correspondiente a los trabajos realizados durante el mes de ${mes.toLowerCase()} de ${anio} por la empresa ${contratista}, por un monto de ${textoCertificado}, correspondiente al servicio básico de Mantenimiento Integral de la Red Pluvial.
 
-Por otro lado, las Resoluciones Nros. ${resoluciones}, aprobaron las redeterminaciones provisorias de precios por un total de ${montoRedetLetras} (${montoRedetNumero}), correspondientes al servicio de Mantenimiento Integral de la Red Pluvial.
+Por otro lado, las Resoluciones Nros. ${resoluciones}, aprobaron las redeterminaciones provisorias de precios por un total de ${textoRedeterminaciones}, correspondientes al servicio de Mantenimiento Integral de la Red Pluvial.
 
 Se informa que los montos mencionados surgen del detalle de liquidación emitido por el sistema SAP, vinculado al expediente de referencia mediante el ${ifSAP}.
 
