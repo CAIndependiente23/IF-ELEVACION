@@ -185,7 +185,8 @@ resoluciones:`5757-MHFGC/21, 440-MHFGC/22, 2377-MHFGC/22, 3009-MHFGC/22, 4375-MH
 },
 
 Z2:{
-monto:"$389.765.831,70",
+monto:"$172.672.388,38",
+montoAcumar:"$217.093.443,32",
 resoluciones:`1952-MHFGC/25, 2883-MHFGC/25, 4029-MHFGC/25, 4984-MHFGC/25 y 1608-MHFGC/26`
 },
 
@@ -195,7 +196,8 @@ resoluciones:`1953-MHFGC/25, 2498-MHFGC/25, 0734-MHFGC/25, 4985-MHFGC/25 y 1560-
 },
 
 Z4:{
-monto:"$22.155.179,55",
+monto:"$15.148.196,14",
+montoAcumar:"$7.006.983,41",
 resoluciones:`407-MHFGC/22, 922-MHFGC/22, 2425-MHFGC/22, 3381-MHFGC/22, 4929-MHFGC/22, 7233-MHFGC/22, 568-MHFGC/23, 1527-MHFGC/23, 3203-MHFGC/23, 5089-MHFGC/23, 5978-MHFGC/23, 6907-MHFGC/23, 7851-MHFGC/23, 8828-MHFGC/23, 575-MHFGC/24, 1828-MHFGC/24, 2942-MHFGC/24, 3585-MHFGC/24, 4545-MHFGC/24, 5669-MHFGC/24, 7345-MHFGC/24, 8630-MHFGC/24, 48-MHFGC/25, 1590-MHFGC/25, 3146-MHFGC/25, 4024-MHFGC/25, 4990-MHFGC/25 y 1554-MHFGC/26`
 },
 
@@ -219,6 +221,16 @@ function actualizarZona(){
 
         document.getElementById("montoCertificadoNumero").value =
             info.monto;
+        if(info.montoAcumar){
+
+    document.getElementById("montoCertificadoAcumarNumero").value =
+        info.montoAcumar;
+
+} else {
+
+    document.getElementById("montoCertificadoAcumarNumero").value = "";
+
+}
 
         document.getElementById("resoluciones").value =
             info.resoluciones;
