@@ -116,11 +116,47 @@ button{
 <label>Monto Certificado (Número)</label>
 <input id="montoCertificadoNumero" value="$29.110.530,41" oninput="actualizarMontos()">
 
+<label id="lblCertAcumar" style="display:none;">
+Monto Certificado ACUMAR (Número)
+</label>
+
+<input
+    id="montoCertificadoAcumarNumero"
+    style="display:none;"
+    oninput="actualizarMontos()">
+
+<label id="lblCertAcumarLetras" style="display:none;">
+Monto Certificado ACUMAR (Letras)
+</label>
+
+<textarea
+    id="montoCertificadoAcumarLetras"
+    readonly
+    style="display:none;"></textarea>
+
 <label>Monto Redeterminaciones (Letras)</label>
 <textarea id="montoRedetLetras" readonly></textarea>
 
 <label>Monto Redeterminaciones (Número)</label>
 <input id="montoRedetNumero" value="" oninput="actualizarMontos()">
+
+<label id="lblRedetAcumar" style="display:none;">
+Monto Redeterminaciones ACUMAR (Número)
+</label>
+
+<input
+    id="montoRedetAcumarNumero"
+    style="display:none;"
+    oninput="actualizarMontos()">
+
+<label id="lblRedetAcumarLetras" style="display:none;">
+Monto Redeterminaciones ACUMAR (Letras)
+</label>
+
+<textarea
+    id="montoRedetAcumarLetras"
+    readonly
+    style="display:none;"></textarea>
 
 <label>Resoluciones</label>
 <textarea id="resoluciones" style="height:180px;">
@@ -187,6 +223,32 @@ function actualizarZona(){
         document.getElementById("resoluciones").value =
             info.resoluciones;
 
+        if(zona=="Z2" || zona=="Z4"){
+
+document.getElementById("lblCertAcumar").style.display="block";
+document.getElementById("montoCertificadoAcumarNumero").style.display="block";
+document.getElementById("lblCertAcumarLetras").style.display="block";
+document.getElementById("montoCertificadoAcumarLetras").style.display="block";
+
+document.getElementById("lblRedetAcumar").style.display="block";
+document.getElementById("montoRedetAcumarNumero").style.display="block";
+document.getElementById("lblRedetAcumarLetras").style.display="block";
+document.getElementById("montoRedetAcumarLetras").style.display="block";
+
+}else{
+
+document.getElementById("lblCertAcumar").style.display="none";
+document.getElementById("montoCertificadoAcumarNumero").style.display="none";
+document.getElementById("lblCertAcumarLetras").style.display="none";
+document.getElementById("montoCertificadoAcumarLetras").style.display="none";
+
+document.getElementById("lblRedetAcumar").style.display="none";
+document.getElementById("montoRedetAcumarNumero").style.display="none";
+document.getElementById("lblRedetAcumarLetras").style.display="none";
+document.getElementById("montoRedetAcumarLetras").style.display="none";
+
+}
+
         actualizarMontos();
     }
 
@@ -199,6 +261,23 @@ numeroALetras(document.getElementById("montoCertificadoNumero").value);
 
 document.getElementById("montoRedetLetras").value =
 numeroALetras(document.getElementById("montoRedetNumero").value);
+
+const certAcumar =
+document.getElementById("montoCertificadoAcumarNumero");
+
+if(certAcumar){
+document.getElementById("montoCertificadoAcumarLetras").value =
+numeroALetras(certAcumar.value);
+}
+
+const redetAcumar =
+document.getElementById("montoRedetAcumarNumero");
+
+if(redetAcumar){
+document.getElementById("montoRedetAcumarLetras").value =
+numeroALetras(redetAcumar.value);
+}
+
 }
 
 function numeroALetras(valor){
